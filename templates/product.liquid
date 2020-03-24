@@ -1,0 +1,48 @@
+{%- section "product-template" -%}
+
+<script>
+
+_gs("event", "Viewed Product", {
+  id: "{{ product.id }}",
+  name: "{{ product.title }}",
+  type: "{{ product.type }}",
+  url: "{{ product.url }}",
+  price: "{{ product.price | money_without_currency }}",
+  priceMin: "{{ product.price_min | money_without_currency }}",
+  priceMax: "{{ product.price_max | money_without_currency }}",
+  priceVaries: "{{ product.price_varies | money_without_currency }}",
+  variantsCount: "{{ product.variants.size }}",
+  firstAvailVariant: "{{ product.first_available_variant.title }}",
+  variantId: "{{ product.selected_variant.id }}",
+  variantAvailable: "{{ variant.available }}",
+  variantCompareAtPrice: "{{ variant.compare_at_price | money_without_currency }}",
+  variantQuantity: "{{ variant.inventory_quantity }}",
+  variantPrice: "{{ variant.price | money_without_currency }}",
+  variantSelected: "{{ variant.selected }}",
+  sku: "{{ variant.sku }}",
+  variantTitle: "{{ variant.title }}",
+  variantUrl: "{{ variant.url }}",
+  variantWeight: "{{ variant.weight }}",
+  vendor: "{{ product.vendor }}",
+  available: "{{ product.available }}",
+  optionsCount: "{{ product.options.size }}",
+});
+
+</script>
+
+<script>
+
+var cartButton =  document.getElementById(“your-cart-button-id“);
+
+function addProductEvent(){
+  _gs("event", "Added Product", {
+   id: "{{ product.id }}",
+   name: "{{ product.title }}",
+   price: "{{ product.price | money_without_currency }}",
+   quantity: "{{ product.quantity }}",
+   value: "{{ product.quantity }}*{{ product.price | money_without_currency }}"
+ });
+};
+cartButton.addEventListener("click", _gs(addProductEvent))
+
+</script>
