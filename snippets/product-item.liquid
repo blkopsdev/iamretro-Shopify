@@ -30,7 +30,9 @@
     <div class="new">{{'products.product.new' | t}}</div>
     {%- endif -%}
     {%- include 'product-item-images', my_layout: 'grid' -%}
+    {%- comment -%}
     {%- if settings.quickshop_image > 0 and product.images.size > 1 -%}{%- include 'item-images' with settings.quickshop_image | minus: 1 -%}{%- endif -%}
+    {%- endcomment -%}
     {% if settings.product_item_advanced_thumb_type != "dots" %}
     {%- if settings.product_countdown_show -%}{%- include 'limited-offer' -%}{%- endif -%}
     {%- endif -%}

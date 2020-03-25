@@ -4249,7 +4249,8 @@ theme.CurrencyPicker = function() {
             this.$container.off(this.brandsNamspace)
         }
     }), e
-}(), theme.rvsVideo = function() {
+}(), 
+/* theme.rvsVideo = function() {
     function e(e) {
         var t = this.$container = $(e),
             a = this.sectionId = t.attr("data-section-id"),
@@ -4604,7 +4605,8 @@ theme.CurrencyPicker = function() {
             this.$container.off(this.latestCategoryNamspace)
         }
     }), e
-}(), theme.CollectionsList = function() {
+}(),  */
+theme.CollectionsList = function() {
     function e(e) {
         var t = this.$container = $(e),
             a = this.sectionId = t.attr("data-section-id"),
