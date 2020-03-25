@@ -8,18 +8,6 @@
     "theme_support_url": "https:\/\/roartheme.ticksy.com\/"
   },
   {
-    "name": "Revolution Slider",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "revolution_slider_used",
-        "info": "To use Revolution Slider Sections in Home Page, please turn on this first.",
-        "label": "Enabled",
-        "default": false
-      }
-    ]
-  },
-  {
     "name": "Logo and Favicon",
     "settings": [
       {
