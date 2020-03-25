@@ -46,8 +46,9 @@
   {%- include 'age-check' -%}
   {%- if template == 'index' -%}
   {%- section 'announcement' -%}
+  {%- section 'top-promo' -%}
   {% endif %}
-  {%- include 'top-promo' -%}
+  
   {%- if settings.shopping_cart_type == "ajax_popup" -%}
   {%- include 'cart-popup' -%}
   {%- endif -%}
