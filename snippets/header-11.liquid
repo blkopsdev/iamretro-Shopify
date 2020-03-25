@@ -26,7 +26,9 @@
               </div>
               <!-- Header Right -->
               <div class="col-sm-3 orderable" id="header-right">
+                {%- comment -%}
                 {%- section 'header-top-block' -%}
+                {%- endcomment -%}
                 {%- if shop.customer_accounts_enabled -%}
                 <a href="/account" class="my-account">{%- include "account-icon" -%}</a>
                 {%- endif -%}

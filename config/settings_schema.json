@@ -197,29 +197,6 @@
       },
       {
         "type": "select",
-        "id": "header_layout",
-        "label": "Header",
-        "options": [
-          {
-            "value": "1",
-            "label": "Full Width"
-          },
-          {
-            "value": "2",
-            "label": "Fixed"
-          },
-          {
-            "value": "3",
-            "label": "Fixed Type 2"
-          },
-          {
-            "value": "4",
-            "label": "Fixed Type 3"
-          }
-        ]
-      },
-      {
-        "type": "select",
         "id": "slideshow_layout",
         "label": "Slider",
         "options": [
@@ -330,25 +307,6 @@
           {
             "value": "4",
             "label": "Fixed Type 3"
-          }
-        ]
-      },
-      {
-        "type": "select",
-        "id": "sidebar",
-        "label": "Sidebar",
-        "options": [
-          {
-            "value": "none",
-            "label": "None"
-          },
-          {
-            "value": "left",
-            "label": "Left"
-          },
-          {
-            "value": "right",
-            "label": "Right"
           }
         ]
       }

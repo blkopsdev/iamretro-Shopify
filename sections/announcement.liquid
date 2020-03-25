@@ -1,0 +1,137 @@
+<div class="standard-body{%- if section.settings.hn_desktop == false -%}{{' '}}hidden-lg hidden-md{%- endif -%}{%- if section.settings.hn_mobile == false -%}{{' '}}hidden-sm hidden-xs{%- endif -%}" id="header-notice">
+  <div class="header-notice full-width clearfix">
+    {%- if section.settings.hn_use -%}
+    <a href="#" class="close-notice"></a>
+    <div class="container">
+      <div class="hn-content-wrapper">
+        {%-if section.settings.hn_emphasized_text != blank-%}
+        <span class="emphasized texting">{{section.settings.hn_emphasized_text}}</span> 
+        {%-endif-%}
+        {%-if section.settings.hn_text != blank-%}
+        <span class="normal texting">{{section.settings.hn_text}}</span> 
+        {%-endif-%}
+        {%-if section.settings.hn_cta != blank-%}
+        <a class="cta btn" href="{{section.settings.hn_cta_url}}">{{section.settings.hn_cta}}</a>
+        {%-endif-%}
+      </div>
+    </div>
+    {%- endif -%}
+  </div>
+</div>
+<style>
+  /* Header Notice */
+  {% if section.settings.hn_bc != '' %}
+  #header-notice .header-notice {
+    background-color:{{section.settings.hn_bc}};
+  }
+  {% endif %}
+  {%-if section.settings.hn_bi != blank-%}
+  #header-notice .header-notice {
+    background-image: url({{section.settings.hn_bi | img_url: 'master'}});
+  }
+  {%-endif-%}
+</style>
+{% schema %}
+{
+  "name": "Announcement",
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "checkbox",
+      "id": "hn_use",
+      "label": "Enabled"
+    },
+    {
+      "type": "checkbox",
+      "id": "hn_desktop",
+      "label": "Show on Desktop"
+    },
+    {
+      "type": "checkbox",
+      "id": "hn_mobile",
+      "label": "Show on Mobile"
+    },
+    {
+      "type": "checkbox",
+      "id": "hn_once",
+      "label": "Never Display Again If Closed"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "hn_emphasized_text",
+      "label": "Emphasized Text",
+      "default": "Sale 30%"
+    },
+    {
+      "type": "text",
+      "id": "hn_text",
+      "label": "Main Text",
+      "default": "for all products"
+    },
+    {
+      "type": "text",
+      "id": "hn_cta",
+      "label": "CTA Button",
+      "default": "Click Me"
+    },
+    {
+      "type": "url",
+      "id": "hn_cta_url",
+      "label": "CTA URL",
+      "default": "\/collections\/all"
+    },
+    {
+      "type": "header",
+      "content": "Styling"
+    },
+    {
+      "type": "checkbox",
+      "id": "hn_center_content",
+      "label": "Center Content",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "hn_bc",
+      "label": "Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "image_picker",
+      "id": "hn_bi",
+      "label": "Background Image"
+    },
+    {
+      "type": "color",
+      "id": "hn_emphasized_text_c",
+      "label": "Emphasized Text Color",
+      "default": "#CA302C"
+    },
+    {
+      "type": "color",
+      "id": "hn_text_c",
+      "label": "Main Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "hn_cta_c",
+      "label": "CTA Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "hn_cta_bc",
+      "label": "CTA Background Color",
+      "default": "#ffffff"
+    }
+  ]
+}
+{% endschema %}
