@@ -14,7 +14,7 @@
           <div class="{{_colClass}}{% unless section.settings.tpro_cls == '3' %} text-center{% endunless %}">
             <div class="background">
               {%- if section.settings.tpro_img_use_1 -%}
-              <img src="{{ 'tpro_img_1.png' | asset_url }}" alt="{{ section.settings.tpro_text_1 | strip_html }}" />
+              <img src="{{ section.settings.tpro_img_1.png | img_url }}" alt="{{ section.settings.tpro_text_1 | strip_html }}" />
               {%- endif -%}
               <p>{{section.settings.tpro_text_1}}</p>
             </div>
@@ -23,7 +23,7 @@
           <div class="{{_colClass}} text-center">
             <div class="background">
               {%- if section.settings.tpro_img_use_2 -%}
-              <img src="{{ 'tpro_img_2.png' | asset_url }}" alt="{{ section.settings.tpro_text_2 | strip_html }}" />
+              <img src="{{ section.settings.tpro_img_2 | img_url }}" alt="{{ section.settings.tpro_text_2 | strip_html }}" />
               {%- endif -%}
               <p>{{section.settings.tpro_text_2}}</p>
             </div>
@@ -33,7 +33,7 @@
           <div class="{{_colClass}} text-right">
             <div class="background">
               {%- if section.settings.tpro_img_use_3 -%}
-              <img src="{{ 'tpro_img_3.png' | asset_url }}" alt="{{ section.settings.tpro_text_3 | strip_html }}" />
+              <img src="{{ section.settings.tpro_img_3.png | img_url }}" alt="{{ section.settings.tpro_text_3 | strip_html }}" />
               {%- endif -%}
               <p>{{section.settings.tpro_text_3}}</p>
             </div>
@@ -147,8 +147,8 @@
       "label": "Icon Used"
     },
     {
-      "type": "image",
-      "id": "tpro_img_1.png",
+      "type": "image_picker",
+      "id": "tpro_img_1",
       "label": "Column #1 Icon"
     },
     {
@@ -162,8 +162,8 @@
       "label": "Icon Used"
     },
     {
-      "type": "image",
-      "id": "tpro_img_2.png",
+      "type": "image_picker",
+      "id": "tpro_img_2",
       "label": "Column #2 Icon"
     },
     {
@@ -177,8 +177,8 @@
       "label": "Icon Used"
     },
     {
-      "type": "image",
-      "id": "tpro_img_3.png",
+      "type": "image_picker",
+      "id": "tpro_img_3",
       "label": "Column #3 Icon"
     },
     {
@@ -228,6 +228,6 @@
       "category": "Header",
       "name":"Top Promotion"
     }
-  ],
+  ]
 }
 {% endschema %}

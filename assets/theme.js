@@ -14,7 +14,7 @@ NProgress.start(), jQuery(window).resize(function() {
 });
 var roar = {
         init: function() {
-            this.handleAccount(), this.handleCartAgree(), this.handleAddress(), this.initProductQuickShopItem(), this.initFilterSidebar(), this.initFooterCollapse(), this.initVerticalMenuSidebar(), this.initChangeInputNameCartPage(), this.handleOrder(), this.initCountdown(), this.addToCart(), this.cartSidebar(), this.removeCart(), this.addToWishlist(), this.handleCompare(), this.removeToWishlist(), this.handlePopups(), this.handleSearch(), this.handleGMap(), this.handleScrollToTop(), this.handleSmoothScroll(), this.mapFilters(), this.handleQuickshop(), this.handleBlog(), this.handleCookie(), this.fixedHeaderMenu(), this.searchAutoComplete(), this.handleDropdown(), this.toggleFilter(), this.handleHeaderNotice(), this.handleInstagramFloatBar()
+            this.handleAccount(), this.handleCartAgree(), this.handleAddress(), this.initProductQuickShopItem(), this.initFilterSidebar(), this.initFooterCollapse(), this.initVerticalMenuSidebar(), this.initChangeInputNameCartPage(), this.handleOrder(), this.initCountdown(), this.addToCart(), this.cartSidebar(), this.removeCart(), this.addToWishlist(), this.handleCompare(), this.removeToWishlist(), this.handlePopups(), this.handleSearch(), this.handleGMap(), this.handleScrollToTop(), this.handleSmoothScroll(), this.mapFilters(), this.handleQuickshop(), this.handleBlog(), this.handleCookie(), this.fixedHeaderMenu(), this.searchAutoComplete(), this.handleDropdown(), this.toggleFilter(), this.handleInstagramFloatBar()
         },
         handleSeasonalFrame: function() {
             jQuery(window).resize(function() {
@@ -84,14 +84,9 @@ var roar = {
                 t()
             })
         },
-        handleHeaderNotice: function() {
-            if (window.hn_use) {
-                var e = !0;
-                window.hn_once && "yes" == localStorage.getItem("displayNotice") && (e = !1), !0 == e && ($("#header-notice .header-notice").children().show(), $("#header-notice .close-notice").on("click", function() {
-                    return window.hn_once && localStorage.setItem("displayNotice", "yes"), $("#header-notice .header-notice").children().hide(), !1
-                }))
-            }
-        },
+        // handleHeaderNotice: function() {
+            
+        // },
         handleInstagramFloatBar: function() {
             if (window.social_instagram) {
                 var e = new Instafeed({
@@ -4960,3 +4955,8 @@ $(document).ready(function() {
     var e = new theme.Sections;
     e.register("product-template", theme.Product), e.register("mega-menu", theme.MegaMenuSection), e.register("topblock-section", theme.TopBlockSection), e.register("custom-widget", theme.CustomWidgetSection), e.register("banner", theme.BannerSection), e.register("delivery-bar", theme.DeliveryBarSection), e.register("slideshow", theme.SlideShowSection), e.register("slideshow-with-html", theme.SlideShowSection), e.register("slideshow-with-megamenu", theme.SlideShowSection), e.register("sidebar", theme.SidebarSection), e.register("product-tab", theme.ProductTabSection), e.register("advanced-grid", theme.AdvancedGridSection), e.register("preface-footer", theme.PrefaceFooterSection), e.register("footer-top", theme.FooterTopSection), e.register("footer-bottom", theme.FooterBottomSection), e.register("footer-copyright", theme.FooterCopyRightSection), e.register("footer-column-1", theme.FooterColumn), e.register("footer-column-2", theme.FooterColumn), e.register("footer-column-3", theme.FooterColumn), e.register("footer-column-4", theme.FooterColumn), e.register("testimonial", theme.TestimonialSection), e.register("instafeed", theme.InstafeedSection), e.register("latest-blog", theme.LatestBlogSection), e.register("mobile-nav-section", theme.mobileNavSection), e.register("product-variant-mobile", theme.ProductVariantMobile), e.register("cart-variant-mobile", theme.CartVariantMobile), e.register("brands", theme.Brands), e.register("rvsvideo", theme.rvsVideo), e.register("rvshighlight", theme.rvsHighlight), e.register("rvsproducts", theme.rvsProducts), e.register("your-collections", theme.YourCollections), e.register("collections-list", theme.CollectionsList), e.register("shipping-calculator", theme.ShippingCalculator), e.register("collection-template", theme.Filters), e.register("search-template", theme.Filters), e.register("gallery-template", theme.GalleryTemplate), e.register("filter-widget", theme.FilterWidgetSection)
 });
+$(document).ready(function() {
+    $("#header-notice .close-notice").on("click", function() {
+        $("#header-notice .header-notice").children().hide()
+    })
+})

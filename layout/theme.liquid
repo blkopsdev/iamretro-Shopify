@@ -46,7 +46,6 @@
   {%- include 'age-check' -%}
   {%- if template == 'index' -%}
   {%- section 'announcement' -%}
-  {%- section 'top-promo' -%}
   {% endif %}
   
   {%- if settings.shopping_cart_type == "ajax_popup" -%}
@@ -62,7 +61,7 @@
       {%- section 'mobile-nav' -%}
       {%- endif -%}
       {%- comment -%} Header {%- endcomment -%}
-      {%- include 'header' -%}
+      {%- section 'header' -%}
 
       {%- comment -%} Breadcrumb {%- endcomment -%}
       {%- if template != 'index' -%}

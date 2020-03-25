@@ -1,25 +1,31 @@
-<div class="standard-body{%- if section.settings.hn_desktop == false -%}{{' '}}hidden-lg hidden-md{%- endif -%}{%- if section.settings.hn_mobile == false -%}{{' '}}hidden-sm hidden-xs{%- endif -%}" id="header-notice">
-  <div class="header-notice full-width clearfix">
-    {%- if section.settings.hn_use -%}
-    <a href="#" class="close-notice"></a>
-    <div class="container">
-      <div class="hn-content-wrapper">
-        {%-if section.settings.hn_emphasized_text != blank-%}
-        <span class="emphasized texting">{{section.settings.hn_emphasized_text}}</span> 
-        {%-endif-%}
-        {%-if section.settings.hn_text != blank-%}
-        <span class="normal texting">{{section.settings.hn_text}}</span> 
-        {%-endif-%}
-        {%-if section.settings.hn_cta != blank-%}
-        <a class="cta btn" href="{{section.settings.hn_cta_url}}">{{section.settings.hn_cta}}</a>
-        {%-endif-%}
+{% if section.settings.hn_use %}
+  <div class="standard-body{%- if section.settings.hn_desktop == false -%}{{' '}}hidden-lg hidden-md{%- endif -%}{%- if section.settings.hn_mobile == false -%}{{' '}}hidden-sm hidden-xs{%- endif -%}" id="header-notice">
+    <div class="header-notice full-width clearfix">
+      {%- if section.settings.hn_use -%}
+      <a href="#" class="close-notice"></a>
+      <div class="container">
+        <div class="hn-content-wrapper">
+          {%-if section.settings.hn_emphasized_text != blank-%}
+          <span class="emphasized texting">{{section.settings.hn_emphasized_text}}</span> 
+          {%-endif-%}
+          {%-if section.settings.hn_text != blank-%}
+          <span class="normal texting">{{section.settings.hn_text}}</span> 
+          {%-endif-%}
+          {%-if section.settings.hn_cta != blank-%}
+          <a class="cta btn" href="{{section.settings.hn_cta_url}}">{{section.settings.hn_cta}}</a>
+          {%-endif-%}
+        </div>
       </div>
+      {%- endif -%}
     </div>
-    {%- endif -%}
   </div>
-</div>
+{% endif %}
+
 <style>
   /* Header Notice */
+  .header-notice .container {
+    display: block;
+  }
   {% if section.settings.hn_bc != '' %}
   #header-notice .header-notice {
     background-color:{{section.settings.hn_bc}};
