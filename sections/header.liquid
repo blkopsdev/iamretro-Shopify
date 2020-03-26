@@ -1,3 +1,110 @@
+<style>
+  {%- if section.settings.mb_bg_color != blank -%}
+  #primary-{{section.id}} .mobile-nav-wrapper{
+    background-color: {{section.settings.mb_bg_color}}
+  }
+  {%- endif -%}
+  {%- if section.settings.mb_content_color != blank -%}
+  .mobile-nav .mobile-nav__item,
+  .mobile-nav .mobile-nav__item a {
+    color: {{section.settings.mb_content_color}}	
+  }
+  {%- endif -%}
+  {%- if section.settings.mb_border_color != blank -%} 
+  .mobile-nav .mobile-nav__item {
+    border-color: {{section.settings.mb_border_color}}
+  }
+  {%- endif -%}
+</style>
+{% if section.settings.mobile_menu %}
+<div id="shopify-section-mobile-nav" class="shopify-section header-mobile-section">
+  <div id="primary-mobile-menu"  data-section-id="{{ section.id }}" data-section-type="mobile-nav-section">
+    <nav class="mobile-nav-wrapper">
+      <ul class="mobile-nav">
+        <li class="mobile-nav__item">
+          <div class="mobile-nav-icon">
+            <button type="button"><span></span></button>{{ 'general.header.close' | t }}
+          </div>
+        </li>
+        
+        {%- if section.settings.mb_menu != blank -%}
+          {%- for link in linklists[section.settings.mb_menu].links -%}
+            {%- include 'mobile-navigation-link' -%}
+          {%- endfor -%}
+        {%- endif -%}
+        
+        {%- if shop.customer_accounts_enabled -%}
+        <li class="mobile-nav__item">
+          <a href="/account" class="mobile-nav__link">
+            {%- if customer -%}
+            {{ 'general.top.my_account' | t }}
+            {%- else -%}
+            {{ 'general.top.login' | t }}
+            {%- endif -%}
+          </a>
+        </li>
+        {%- endif -%}
+        
+        {%- if settings.wishlist_enable and settings.wishlist_page -%}
+        <li class="mobile-nav__item">
+          <a href="/pages/{{ settings.wishlist_page }}" class="mobile-nav__link">{{ 'general.top.wishlist' | t }}</a>
+        </li>
+        {%- endif -%}
+        
+        {%- if settings.show_multiple_currencies -%}
+        <li class="mobile-nav__item mobile-nav-currency">
+          {%- include 'currencies-switcher', _has_language: false -%}
+        </li>
+        {%- endif -%}
+        <li class="mobile-nav__item mobile-nav-language">
+          <div class="dropdown language__picker">
+            <a href="javascript:void(0);" class="dropdown-toggle language_wrapper" data-hover="dropdown" data-toggle="dropdown">
+              <div class="language__current notranslate"></div>
+            </a>
+            <ul class="dropdown-menu language__switcher">
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <ul class="mobile-nav-bar">
+      <li class="mobile-nav-item mobile-nav-icon">
+        <button type="button"><span></span></button>
+      </li>
+      <li class="mobile-nav-item mobile-nav-search">
+        <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#global__symbols-search"></use></svg>
+      </li>
+      <li class="mobile-nav-item mobile-nav-profile">
+        <a href="/account"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#global__symbols-profile"></use></svg></a>
+      </li>
+      <li class="mobile-nav-item mobile-nav-cart">
+        <a href="/cart">
+          <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#global__symbols-cart-desktop"></use></svg>
+          <span class="total_count_ajax">{{ cart.item_count }}</span>
+        </a>
+      </li>
+    </ul>
+    <form action="/search" method="get" role="search" class="mobile-nav-search-form">
+      <div class="mobile-nav-search-close"><span></span></div>
+      <input type="search" name="q" class="input-block-level search-query" placeholder="{{ 'search.general.placeholder' | t }}" />
+      <div class="autocomplete-results"></div>
+      <input type="hidden" name="type" value="product" />
+    </form>
+    <div class="mobile-nav-logo text-center">
+      <div class="container">
+        <a href="{{shop.url}}" title="{{ shop.name | escape }}">
+          {%- assign _logo = "fastor4logo.png" | asset_img_url: 'master'  -%}
+          {%- if settings.main_logo != blank -%}
+          {%- assign _logo = settings.main_logo | img_url: 'master' -%}
+          {%- endif -%}
+          <img src="{{ _logo }}"{{' '}}{%-if settings.mobile_logo_max_width != blank -%}style="max-width:{{settings.mobile_logo_max_width}}px;"{%-endif-%}{{' '}}title="{{ shop.name | escape }}" alt="{{ shop.name | escape }}" />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
 <header class="header-type-11">
   <div class="background-header"></div>
   <div class="slider-header">
@@ -36,41 +143,51 @@
               </div>
             </div>
           </div>
-          {%- assign megamenu_type_having_2ndMenu = '4,5,6,9,14,19,29' | split: ',' -%}
-          {%- if megamenu_type_having_2ndMenu contains settings.advanced_megamenu_type -%}
-          <div class="container container-megamenu2 orderable">
-            {%- endif -%}
-            <!-- Menu -->
-           	<div  class="megamenu-background">
-              <div class="">
-                <div class="overflow-megamenu container menu-one-only">
-                  {%- section 'header-menu1' -%}
-                </div>
-              </div>
-            </div>
-            {%- if megamenu_type_having_2ndMenu contains settings.advanced_megamenu_type -%}
-          </div>
-          {%- endif -%}
           <div class="overflow-menu2">
+            {%- include 'section-mega-menus' -%}
+            {%- comment -%}
             {%- section 'header-menu2' -%}
+            {%- endcomment -%}
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- Slider -->
-  <div id="slider" class="{%- if settings.slideshow_layout == '1' -%}full-width{%- elsif settings.slideshow_layout == '4' -%}fixed3 fixed2{%- elsif settings.slideshow_layout == '3' -%}fixed2{%- else -%}fixed{%- endif -%}">
-    <div class="background-slider"></div>
-    <div class="background">
-      <div class="shadow"></div>
-      <div class="pattern orderable">
-        {%- include 'header-slideshow' -%}
-      </div>
-    </div>
-  </div>
 </header>
+
 {% schema %}
 {
-  "name": "Header"
+  "name": "Header",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Mobile"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_menu",
+      "label": "Enable mobile menu"
+    },
+    {
+      "type": "link_list",
+      "id": "mb_menu",
+      "label": "Choose a Linklist"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Mobile background color"
+    },
+    {
+      "type": "color",
+      "id": "content_color",
+      "label": "Mobile content color"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Mobile border color"
+    }
+  ]
 }
 {% endschema %}

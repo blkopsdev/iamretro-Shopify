@@ -1,6 +1,5 @@
 {
   "current": {
-    "revolution_slider_used": true,
     "main_logo": "shopify:\/\/shop_images\/logo_248x_67cf1e14-40b2-487f-9595-315e77567c82.png",
     "logo_max_width": "220",
     "mobile_logo_max_width": "",
@@ -15,13 +14,11 @@
     "spacing_between_columns": "2",
     "page_direction": "LTR",
     "main_layout": "1",
-    "header_layout": "1",
     "slideshow_layout": "1",
     "breadcrumb_layout": "4",
     "content_layout": "1",
     "custom_footer_layout": "1",
     "footer_layout": "1",
-    "sidebar": "none",
     "seasonal_frame": "",
     "seasonal_frame_mobile": false,
     "body_effect": "",
@@ -427,19 +424,6 @@
     "hder_m_currency_hide": false,
     "hder_m_account_hide": false,
     "hder_m_cart_hide": false,
-    "tpro_use": false,
-    "tpro_mobile": true,
-    "tpro_cls": "3",
-    "tpro_text_1": "Free Shipping",
-    "tpro_img_use_1": false,
-    "tpro_text_2": "24\/7 Support",
-    "tpro_img_use_2": false,
-    "tpro_text_3": "Returned",
-    "tpro_img_use_3": false,
-    "tpro_textcolor": "#ffffff",
-    "tpro_bgcolor": "#f39090",
-    "tpro_sep": "2",
-    "tpro_sepcolor": "#ffffff",
     "show_multiple_currencies": false,
     "show_languages": false,
     "currency_format": "money_format",
@@ -448,21 +432,6 @@
     "currency_flag": true,
     "currency_code": true,
     "currency_auto_switch": true,
-    "hn_use": true,
-    "hn_desktop": true,
-    "hn_mobile": true,
-    "hn_once": true,
-    "hn_emphasized_text": "SALE!",
-    "hn_text": "SAVE 30% OFF SITEWIDE WITH CODE LDW30",
-    "hn_cta": "SHOP NOW",
-    "hn_cta_url": "shopify:\/\/collections\/all",
-    "hn_center_content": true,
-    "hn_bc": "#000000",
-    "hn_bi": "",
-    "hn_emphasized_text_c": "#fa052b",
-    "hn_text_c": "#ffffff",
-    "hn_cta_c": "#000000",
-    "hn_cta_bc": "#ffffff",
     "footer_custom_layout": "",
     "footer_custom_padding_top": "10",
     "footer_custom_padding_bottom": "10",
@@ -858,6 +827,37 @@
     "checkout_accent_color": "#2a9dcc",
     "checkout_button_color": "#2a9dcc",
     "checkout_error_color": "#ff6d6d",
+    "revolution_slider_used": true,
+    "header_layout": "1",
+    "sidebar": "none",
+    "tpro_use": false,
+    "tpro_mobile": true,
+    "tpro_cls": "3",
+    "tpro_text_1": "Free Shipping",
+    "tpro_img_use_1": false,
+    "tpro_text_2": "24\/7 Support",
+    "tpro_img_use_2": false,
+    "tpro_text_3": "Returned",
+    "tpro_img_use_3": false,
+    "tpro_textcolor": "#ffffff",
+    "tpro_bgcolor": "#f39090",
+    "tpro_sep": "2",
+    "tpro_sepcolor": "#ffffff",
+    "hn_use": true,
+    "hn_desktop": true,
+    "hn_mobile": true,
+    "hn_once": true,
+    "hn_emphasized_text": "SALE!",
+    "hn_text": "SAVE 30% OFF SITEWIDE WITH CODE LDW30",
+    "hn_cta": "SHOP NOW",
+    "hn_cta_url": "shopify:\/\/collections\/all",
+    "hn_center_content": true,
+    "hn_bc": "#000000",
+    "hn_bi": "",
+    "hn_emphasized_text_c": "#fa052b",
+    "hn_text_c": "#ffffff",
+    "hn_cta_c": "#000000",
+    "hn_cta_bc": "#ffffff",
     "social_facebook_url": "https:\/\/www.facebook.com\/roartheme",
     "social_facebook_hide_cover": false,
     "social_facebook_show_faces": true,
@@ -3749,15 +3749,6 @@
           "slider_dfx_sticker": "bounceOut"
         }
       },
-      "mobile-nav": {
-        "type": "mobile-nav",
-        "settings": {
-          "linklist": "main-menu",
-          "bg_color": "",
-          "content_color": "",
-          "border_color": ""
-        }
-      },
       "product-video": {
         "type": "product-video",
         "settings": {}
@@ -5456,43 +5447,38 @@
           "maxwidth": 1920
         }
       },
-      "1580491038821": {
-        "type": "rvs-products",
-        "blocks": {
-          "1580491038821-0": {
-            "type": "slide",
-            "settings": {
-              "slide_image": "",
-              "slide_image_quality": "1920x",
-              "slide_product": "",
-              "slide_product_opacity": 0.4
-            }
-          },
-          "1580491038821-1": {
-            "type": "slide",
-            "settings": {
-              "slide_image": "",
-              "slide_image_quality": "1920x",
-              "slide_product": "",
-              "slide_product_opacity": 0.4
-            }
-          }
-        },
-        "block_order": [
-          "1580491038821-0",
-          "1580491038821-1"
-        ],
+      "announcement": {
+        "type": "announcement",
         "settings": {
-          "placement_fullwidth": false,
-          "visible_on_mobile": true,
-          "margin_top": 0,
-          "delay_time": 4000,
-          "price_prefix": "Starting From"
+          "hn_use": true,
+          "hn_desktop": true,
+          "hn_mobile": true,
+          "hn_once": true,
+          "hn_emphasized_text": "SALE!",
+          "hn_text": "SAVE 30% OFF SITEWIDE WITH CODE LDW30",
+          "hn_cta": "SHOP NOW",
+          "hn_cta_url": "shopify:\/\/collections\/all",
+          "hn_center_content": true,
+          "hn_bc": "#000000",
+          "hn_bi": "",
+          "hn_emphasized_text_c": "#fa052b",
+          "hn_text_c": "#ffffff",
+          "hn_cta_c": "#000000",
+          "hn_cta_bc": "#ffffff"
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "mobile_menu": true,
+          "mb_linklist": "main-menu",
+          "bg_color": "",
+          "content_color": "",
+          "border_color": ""
         }
       }
     },
     "content_for_index": [
-      "1580491038821",
       "1527420245567",
       "1527253564785",
       "1527311177344",

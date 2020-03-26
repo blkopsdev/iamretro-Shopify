@@ -4433,22 +4433,6 @@
       },
       {
         "type": "select",
-        "id": "mmenu_enabled",
-        "label": "Header Mobile",
-        "options": [
-          {
-            "value": "",
-            "label": "Disabled"
-          },
-          {
-            "value": "1",
-            "label": "Enabled"
-          }
-        ],
-        "default": "1"
-      },
-      {
-        "type": "select",
         "id": "header_type",
         "label": "Type",
         "info": "[How does it look?](\/\/goo.gl\/tPA3AN)",
