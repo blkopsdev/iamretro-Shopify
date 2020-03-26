@@ -1706,19 +1706,6 @@ header {
 }
 {% endif %}
 
-/* Slider Bg Image */
-#slider .pattern,
-.slider .pattern{ 
-  {% if settings.slideshow_bg_img == '1' %}
-  background-image:none!important; 
-  {% elsif settings.slideshow_bg_img == '2' %}
-  background-image:url({{ 'slideshow_bg.png' | asset_url }});
-  background-position:{{settings.slideshow_bg_pos}};
-  background-repeat:{{settings.slideshow_bg_repeat}} !important;
-  background-attachment:{{settings.slideshow_bg_attach}} !important;
-  {% endif %}
-}
-
 /* Responsive */
 @media (max-width: 1270px){
   .footer .pattern{
@@ -2964,19 +2951,7 @@ div.testimonial p{
   color:{{settings.testi_tit_c}};
 }
 {% endif %}
-/* Slider Overflow */
-{% if settings.slider_overflow and settings.slider_align_top == false %}
-@media (min-width: 992px) and (max-width: 1379px) {
-  .standard-body .full-width .container.slider-overflow {
-    width: 90%;
-  }
-}
-@media (min-width: 1380px) {
-  .standard-body .full-width .container.slider-overflow {
-    width: 88%;
-  }
-}
-{% endif %}
+
 /* Glamshop Newsletter */
 .newsletter.glamshop-newsletter .heading p {
   font-family:{{SPECIAL_FONT}};

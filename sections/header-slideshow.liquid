@@ -1,4 +1,3 @@
-{%- if section.settings.header_slideshow_enabled -%}
 <style>
   /* @start Home Slider */
   #home-slider-{{section.id}} {
@@ -179,7 +178,7 @@
   #home-slider-{{section.id}} .flex-direction-nav li:hover a svg {fill:{{section.settings.slider_navhvr_icon_color}};}
   /* @end Home Slider */
 </style>
-<div id="slider" class="{%- if settings.slideshow_layout == '1' -%}full-width{%- elsif settings.slideshow_layout == '4' -%}fixed3 fixed2{%- elsif settings.slideshow_layout == '3' -%}fixed2{%- else -%}fixed{%- endif -%}">
+<div id="slider" class="full-width">
   <div class="background-slider"></div>
   <div class="background">
     <div class="shadow"></div>
@@ -192,20 +191,14 @@
     </div>
   </div>
 </div>
-{%- endif -%}
 {% schema %}
   {
-    "name": "Header Slideshow",
+    "name": "Home Slideshow",
     "class": "index-section section-wrapper",
     "settings": [
       {
         "type": "header",
         "content": "*** General:"
-      },
-      {
-        "type": "checkbox",
-        "id": "header_slideshow_enabled",
-        "label": "Enabled"
       },
       {
         "type": "checkbox",
@@ -236,10 +229,6 @@
         "type": "text",
         "id": "slider_interval",
         "label": "Interval (in milliseconds)"
-      },
-      {
-        "type": "header",
-        "content": "*** Design:"
       },
       {
         "type": "header",
@@ -1941,7 +1930,7 @@
     ],
     "presets": [
       {
-        "category": "Slideshow",
+        "category": "Slideshows",
         "name":"Header slider",
         "settings": {
           "visible_on_mobile": true,
