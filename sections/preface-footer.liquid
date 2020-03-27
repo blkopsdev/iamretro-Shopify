@@ -1,4 +1,25 @@
 <style> 
+.custom-footer .background,.standard-body .custom-footer .background {
+    background-color:{{section.settings.customfooter_background_color}};
+    border-top: 1px solid {{section.settings.customfooter_border_color}};
+}
+.custom-footer .pattern {
+{% if settings.custom_footer_background_background == '2' %}
+    background-image: url({{section.settings.custom_footer_background | asset_url}});
+    background-position: {{section.settings.custom_footer_background_position}};
+    background-repeat: {{section.settings.custom_footer_background_repeat}};
+    background-attachment: {{section.settings.custom_footer_background_attachment}};
+{% endif %}
+{% if section.settings.footer_custom_padding_top != '' %}padding-top: {{section.settings.footer_custom_padding_top | plus:0}}px!important;{% endif %}
+{% if section.settings.footer_custom_padding_bottom != '' %}padding-bottom: {{section.settings.footer_custom_padding_bottom | plus:0}}px!important;{% endif %}
+    color: {{section.settings.customfooter_text_color}};
+}
+.custom-footer .pattern a{
+    color: {{section.settings.customfooter_links_color}};
+}
+.custom-footer .pattern a:hover{
+    color: {{section.settings.customfooter_links_hover_color}};
+}
 {%- for block in section.blocks limit: section.blocks.size -%}
   #preface-footer-{{section.id}} #footer-blocks-top-{{block.id}}.footer-blocks-top .footer-block .caption{
     {%- if block.settings.footer_info_caption_size != '' -%}
@@ -105,6 +126,9 @@
 </div>
 {%- endif -%}
 {%- endif -%}
+<style>
+    
+</style>
 {% schema %}
   {
     "name": "Preface Footer",
@@ -115,7 +139,130 @@
             "id": "visible_on_mobile",
             "label": "Show on Mobile",
             "default": true
-        }
+        },
+        {
+            "type": "color",
+            "id": "customfooter_text_color",
+            "label": "Text"
+        },
+        {
+            "type": "color",
+            "id": "customfooter_links_color",
+            "label": "Link"
+        },
+        {
+            "type": "color",
+            "id": "customfooter_links_hover_color",
+            "label": "Link Hover"
+        },
+        {
+            "type": "color",
+            "id": "customfooter_background_color",
+            "label": "Background"
+        },
+        {
+            "type": "color",
+            "id": "customfooter_border_color",
+            "label": "Border"
+        },
+
+      {
+        "type": "select",
+        "id": "custom_footer_background_background",
+        "label": "Background",
+        "options": [
+          {
+            "value": "0",
+            "label": "Default"
+          },
+          {
+            "value": "1",
+            "label": "None"
+          },
+          {
+            "value": "2",
+            "label": "Image"
+          }
+        ]
+      },
+      {
+        "type": "image_picker",
+        "id": "custom_footer_background",
+        "label": "Upload an Image"
+      },
+      {
+        "type": "select",
+        "id": "custom_footer_background_position",
+        "label": "Position to Start",
+        "options": [
+          {
+            "value": "top left",
+            "label": "Top Left"
+          },
+          {
+            "value": "top center",
+            "label": "Top Center"
+          },
+          {
+            "value": "top right",
+            "label": "Top Right"
+          },
+          {
+            "value": "bottom left",
+            "label": "Bottom Left"
+          },
+          {
+            "value": "bottom center",
+            "label": "Bottom Center"
+          },
+          {
+            "value": "bottom right",
+            "label": "Bottom Right"
+          },
+          {
+            "value": "center center",
+            "label": "Center Center"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "custom_footer_background_repeat",
+        "label": "Repeat",
+        "options": [
+          {
+            "value": "no-repeat",
+            "label": "None"
+          },
+          {
+            "value": "repeat-x",
+            "label": "Horizontally"
+          },
+          {
+            "value": "repeat-y",
+            "label": "Vertically"
+          },
+          {
+            "value": "repeat",
+            "label": "Vertically & Horizontally"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "custom_footer_background_attachment",
+        "label": "Attachment",
+        "options": [
+          {
+            "value": "scroll",
+            "label": "Scroll"
+          },
+          {
+            "value": "fixed",
+            "label": "Fixed"
+          }
+        ]
+      }
     ],
     "blocks": [
         {

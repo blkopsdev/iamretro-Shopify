@@ -6,9 +6,6 @@
 {% assign HEADING_FONT = '"' | append: HEADING_FONT | append: '"' | append: ', sans-serif' %}
 {% assign SPECIAL_FONT = '"' | append: SPECIAL_FONT | append: '"' | append: ', sans-serif' %}
 
-{% assign PRICE_FONT = GENERAL_FONT %}
-{% if settings.price_font == '2' %}{% assign PRICE_FONT = HEADING_FONT %}{% elsif settings.price_font == '3' %}{% assign PRICE_FONT = SPECIAL_FONT %}{% endif %}
-
 {% assign BUTTON_FONT = GENERAL_FONT %}
 {% if settings.button_font == '2' %}{% assign BUTTON_FONT = HEADING_FONT %}{% elsif settings.button_font == '3' %}{% assign BUTTON_FONT = SPECIAL_FONT %}{% endif %}
 
@@ -225,27 +222,7 @@ body .dropdown-menu > li > a,
   color: {{settings.footer_button_hover_text_color}} !important;
   background: {{settings.footer_button_hover_background_color}};
 }
-.custom-footer .background,.standard-body .custom-footer .background {
-  background-color:{{settings.customfooter_background_color}};
-  border-top: 1px solid {{settings.customfooter_border_color}};
-}
-.custom-footer .pattern {
-  {% if settings.custom_footer_background_background == '2' %}
-  background-image: url({{'custom_footer_background.png' | asset_url}});
-  background-position: {{settings.custom_footer_background_position}};
-  background-repeat: {{settings.custom_footer_background_repeat}};
-  background-attachment: {{settings.custom_footer_background_attachment}};
-  {% endif %}
-  {% if settings.footer_custom_padding_top != '' %}padding-top: {{settings.footer_custom_padding_top | plus:0}}px!important;{% endif %}
-  {% if settings.footer_custom_padding_bottom != '' %}padding-bottom: {{settings.footer_custom_padding_bottom | plus:0}}px!important;{% endif %}
-  color: {{settings.customfooter_text_color}};
-}
-.custom-footer .pattern a{
-  color: {{settings.customfooter_links_color}};
-}
-.custom-footer .pattern a:hover{
-  color: {{settings.customfooter_links_hover_color}};
-}
+
 .footer .background, .standard-body .footer .background {
   background-color:{{settings.footer_background_color}};
 }
@@ -1147,46 +1124,19 @@ legend {
 .today-deals-products .product .price,
 .architecture-products .product .right .price,
 .matrialarts-products .matrial-product .right .price {
-  {% if settings.price_size_small != '' %}
-  font-size: {{settings.price_size_small | plus:0}}px;
-  {% endif %}
-  {% if settings.price_weight != '' %}
-  font-weight: {{settings.price_weight | plus:0}}!important;
-  {% endif %}
-}
-{% if settings.price_size_small == '20' or settings.price_size_small == '20px' %}
-#top #cart_block .cart-heading p strong,
-.cart-total table tr td:last-child,
-.mini-cart-total td:last-child,
-.mini-cart-info .total {
   font-size: 14px;
+  font-weight: 600!important;
 }
-{% endif %}
+
 .product-info .price .price-new {
-  {% if settings.price_size != '' %}
-  font-size: {{settings.price_size | plus:0}}px;
-  {% endif %}
-  {% if settings.price_weight != '' %}
-  font-weight: {{settings.price_weight | plus:0}}!important;
-  {% endif %}
-}
-.product-list .name-actions > .price {
-  {% if settings.price_size_medium != '' %}
-  font-size: {{settings.price_size_medium | plus:0}}px;
-  {% endif %}
-  {% if settings.price_weight != '' %}
-  font-weight: {{settings.price_weight | plus:0}}!important;
-  {% endif %}
+  font-size: 20px;
+  font-weight: 600!important;
 }
 .price-old,
 .today-deals-products .product .price .price-old,
 .architecture-products .product .right .price .price-old {
-  {% if settings.price_size_old != '' %}
-  font-size: {{settings.price_size_old | plus:0}}px;
-  {% endif %}
-  {% if settings.price_weight != '' %}
-  font-weight: {{settings.price_weight | plus:0}};
-  {% endif %}
+  font-size: 14px;
+  font-weight: 600;
 }
 {% if settings.main_background_color != '' %}
 {% if settings.main_background_color != 'rgba(0,0,0,0)' %}
@@ -1570,51 +1520,6 @@ table.list td,
   {% endif %}
 }
 {% endif %}
-{% endif %}
-{% if settings.price_font != '1' %}
-.products .product-info-more .price, 
-.product-grid .product .price, 
-.product-list .name-actions > .price, 
-.product-info .price .price-new,
-ul.megamenu li .product .price,
-.advanced-grid-products .product .right .price,
-#top #cart_block .cart-heading p strong,
-.cart-total table tr td:last-child,
-.mini-cart-info .total,
-.mini-cart-total td:last-child,
-.today-deals-products .product .price,
-.product-info .price .price-old,
-.architecture-products .product .right .price,
-.matrialarts-products .matrial-product .right .price,
-.today-deals-toys2-products .price,
-.today-deals-petshop2-products .price,
-.today-deals-shoes3-products .price,
-.today-deals-computer8-products .price,
-.today-deals-computer6-products .price {
-  font-family: {{PRICE_FONT}};
-}
-{% endif %}
-{% if PRICE_FONT == '"Teko", sans-serif' %}
-.products .product-info-more .price,
-.product-grid .product .price, 
-.product-list .name-actions > .price, 
-.product-info .price .price-new,
-ul.megamenu li .product .price,
-.advanced-grid-products .product .right .price,
-#top #cart_block .cart-heading p strong,
-.cart-total table tr td:last-child,
-.mini-cart-info .total,
-.mini-cart-total td:last-child,
-.today-deals-products .product .price,
-.product-info .price .price-old {
-  line-height: 1.3;
-}
-#top #cart_block .cart-heading p:after {
-  margin-top: 6px;
-}
-#top #cart_block .cart-heading p {
-  padding-top: 10px;
-}
 {% endif %}
 /* @group Separate Top Promo */
 
@@ -2684,53 +2589,7 @@ ul.megamenu > li > a strong,
   line-height:{{settings.cat_bar_line_height | plus:0}};
 }
 {% endif %}
-/* Font */
-{% if settings.body_font_size_sm != '' %}
-.dropdown-menu,
-body .dropdown-menu > li > a,
-.top-bar .menu li a,
-#top .dropdown > a,
-.product-info .cart .add-to-cart p,
-.header-notice,
-.welcome-text,{
-  font-size: {{settings.body_font_size_sm | plus:0}}px;
-}
-{% if settings.body_font_size_sm == '14' or settings.body_font_size_sm == '14px' %}
-#top .dropdown > a:after {
-  margin-top: 6px;
-}
-{% endif %}
-{% endif %}
-{% if settings.body_font_size_xs != '' %}
-.product-filter .options .product-wishlist a,
-.product-info .cart .links a,
-.button-previous-next,
-.footer-button,
-.button-white-with-red-text,
-table.attribute thead td,
-table.list thead td,
-.wishlist-product table thead td,
-.wishlist-info table thead td,
-.compare-info thead td,
-.checkout-product table thead td,
-.table thead td,
-.cart-info table thead td,
-.manufacturer-heading,
-.center-column .panel-heading h4,
-ul.box-filter > li > span,
-.popup .form-contact .contact-label label,
-.categories-wall .category-wall .more-categories,
-.mfilter-heading,
-.product-info .options2 > div > label,
-.swatch .header,
-.product-info .options2 .selector-wrapper label,
-.product-info .cart .add-to-cart p,
-.product-info .links .link,
-.swatch .swatch-element label{
-  font-size: {{settings.body_font_size_xs | plus:0}}px !important;
-  text-transform: {{settings.body_font_transform_xs}} !important;
-}
-{% endif %}
+
 .social_widget.totop .icon{
   background-color: {{settings.button_background_color}};
   color: {{settings.button_text_color}};

@@ -8,7 +8,7 @@
   <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' /><![endif]-->
   {%- if settings.responsive_design -%}<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />{%- endif -%}
   {%- if canonical_url != '' -%}<link rel="canonical" href="{{ canonical_url }}" />{%- endif -%}
-  {%- if settings.favicon -%}<link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/x-icon" />{%- endif -%}
+  <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/x-icon" />
   {%- if settings.iphone_icon -%}<link rel="apple-touch-icon-precomposed" href="{{ 'iphone_icon.png' | asset_url }}" />{%- endif -%}
   {%- if settings.iphone_icon_retina -%}<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ 'iphone_icon_retina.png' | asset_url }}" />{%- endif -%}
   {%- if settings.ipad_icon -%}<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ 'ipad_icon.png' | asset_url }}" />{%- endif -%}
